@@ -14,15 +14,13 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { DocumentViewerComponent } from './document-viewer/document-viewer.component';
-import { ScannerComponent } from './pages/scanner/scanner.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    DocumentViewerComponent,
-    ScannerComponent
+    DocumentViewerComponent
   ],
   imports: [
     BrowserModule,
