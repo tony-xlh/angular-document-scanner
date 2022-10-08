@@ -23,7 +23,7 @@ export class ScannerComponent implements OnInit {
     Dynamsoft.DWT.RegisterEvent('OnWebTwainReady', () => {
       this.DWObject = Dynamsoft.DWT.GetWebTwain(this.containerID);
     });
-    Dynamsoft.DWT.ResourcesPath = "/dwt-resources";
+    Dynamsoft.DWT.ResourcesPath = "assets/dwt-resources";
     Dynamsoft.DWT.Containers = [{
         WebTwainId: 'dwtObject',
         ContainerId: this.containerID
