@@ -5,15 +5,14 @@
     </nz-page-header>
   </nz-header>
   <nz-layout>
-    <nz-content>
-      <nz-tabset nzCentered>
-        <nz-tab nzTitle="Scan">
-          <app-scanner></app-scanner>
-        </nz-tab>
-        <nz-tab nzTitle="Settings">
-          <app-settings></app-settings>
-        </nz-tab>
-      </nz-tabset>
-    </nz-content>
+    <nz-sider nzWidth="300px"  nzTheme="light">
+      <app-settings></app-settings>
+    </nz-sider>
+    <nz-layout>
+      <nz-content>
+        <app-scanner></app-scanner>
+      </nz-content>
+    </nz-layout>
   </nz-layout>
+
 </nz-layout>
