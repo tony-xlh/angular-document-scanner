@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +6,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isCollapsed = false;
-  constructor(private route:Router){
+  constructor(){
 
-  }
-  goToScanner(){
-    this.route.navigate(['/scanner']);
-  }
-  goToSettings(){
-    this.route.navigate(['/settings']);
   }
 }

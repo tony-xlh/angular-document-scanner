@@ -16,6 +16,7 @@ import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { DocumentViewerComponent } from './document-viewer/document-viewer.component';
 import { ScannerComponent } from './tabs/scanner/scanner.component';
 import { SettingsComponent } from './tabs/settings/settings.component';
+import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 
 registerLocaleData(en);
 
@@ -34,7 +35,8 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     IconsProviderModule,
     NzLayoutModule,
-    NzTabsModule
+    NzTabsModule,
+    NzPageHeaderModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
