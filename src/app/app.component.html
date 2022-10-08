@@ -15,10 +15,10 @@
       <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a  routerLink="/scanner">Scanner</a>
+            <a  (click)="goToScanner()">Scanner</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/settings">Settings</a>
+            <a  (click)="goToSettings()">Settings</a>
           </li>
         </ul>
       </li>
