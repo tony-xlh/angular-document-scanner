@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scanner.component.css']
 })
 export class ScannerComponent implements OnInit {
-
-  constructor() { }
+  public count:number;
+  constructor() { 
+    this.count = 0
+  }
 
   ngOnInit(): void {
   }
-
+  onClick(){
+    this.count++;
+  }
 }
