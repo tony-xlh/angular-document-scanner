@@ -55,4 +55,11 @@ export class AppComponent {
       this.DWObject.SaveAllAsPDF("Documents.pdf",onSuccess,onFailure);
     }
   }
+
+  edit() {
+    if (this.DWObject) {
+      let imageEditor = this.DWObject.Viewer.createImageEditor();
+      imageEditor.show();
+    }
+  }
 }
