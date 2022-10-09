@@ -12,24 +12,23 @@ export class AppComponent {
   DWObject: WebTwain|undefined;
   selectedScanner: string = "";
   scanners: string[] = [];
-  showUI:boolean = false;
-  useADF:boolean = false;
-  duplex:boolean = false;
-  resolution:number = 200;
-  pixelType:string = "2";
+  showUI: boolean = false;
+  useADF: boolean = false;
+  duplex: boolean = false;
+  resolution: number = 200;
+  pixelType: string = "2";
   constructor(){
 
   }
 
   onWebTWAINReady(DWObject:WebTwain){
     this.DWObject = DWObject;
-    console.log(this.DWObject);
-    this.loadScanners();
+    this.loadScanners;
   }
 
-  loadScanners(){
+  async loadScanners(){
     if (this.DWObject) {
-      const names = this.DWObject.GetSourceNames(false) as string[];
+      const names = await this.DWObject.GetSourceNamesAsync(false) as string[];
       this.scanners = names;
       if (names.length>0) {
         this.selectedScanner = names[0];
