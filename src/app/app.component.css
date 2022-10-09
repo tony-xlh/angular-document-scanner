@@ -23,6 +23,14 @@ nz-page-header-title {
   color:white;
 }
 
-.content {
-  margin-right: 300px;
+.left {
+  height: 100%;
+  float: left;
+  width: calc(100% - 250px);
+}
+
+.right {
+  margin-left: 10px;
+  width:240px;
+  float:right;
 }

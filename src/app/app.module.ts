@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { DocumentViewerComponent } from './document-viewer/document-viewer.component';
 import { ScannerComponent } from './tabs/scanner/scanner.component';
 import { SettingsComponent } from './tabs/settings/settings.component';
@@ -35,7 +34,6 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     IconsProviderModule,
     NzLayoutModule,
-    NzTabsModule,
     NzPageHeaderModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
