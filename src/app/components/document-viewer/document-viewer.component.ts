@@ -1,14 +1,16 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
 import Dynamsoft from "dwt";
 import { WebTwain } from 'dwt/dist/types/WebTwain';
 
 @Component({
   selector: 'app-document-viewer',
   templateUrl: './document-viewer.component.html',
-  styleUrls: ['./document-viewer.component.css']
+  styleUrls: ['./document-viewer.component.css'],
+  outputs: ['onWebTWAINReady']
 })
 export class DocumentViewerComponent implements OnInit {
   @ViewChild('viewerElement') viewerElement:any;
+  onWebTWAINReady = new EventEmitter<WebTwain>();
   containerID = "dwtcontrolContainer";
   DWObject:WebTwain|undefined;
   private _width:string;
@@ -43,10 +45,11 @@ export class DocumentViewerComponent implements OnInit {
       this.DWObject = Dynamsoft.DWT.GetWebTwain(this.containerID);
       this.DWObject.Viewer.width = this._width;
       this.DWObject.Viewer.height = this._height;
-      console.log(this.viewerElement);
       this.viewerElement.nativeElement.style.width = this._width;
       this.viewerElement.nativeElement.style.height = this._height;
-      
+      if (this.onWebTWAINReady) {
+        this.onWebTWAINReady.emit(this.DWObject);
+      }
     });
     Dynamsoft.DWT.ProductKey = "t01529gIAACXEXNlM7wE1256QvZ+rCxocWpLMMCDZjZERU2jIoIbVgsAOjGxkCTEHve0cFnCRhwnMbKfvzroxV8eij1g0DudsWGIjGBhUE+VdqW3JGXmBzYB2AF/kCKzLD7jr53VUwQGJgAbApvEHnIf8zkoGIT2QCGgAzkM6MJhk+2lIDwX3HpJDIBHQAPSQDqw3Ya2VT+1Tmkg=";
     Dynamsoft.DWT.ResourcesPath = "assets/dwt-resources";

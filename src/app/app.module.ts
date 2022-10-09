@@ -12,19 +12,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { DocumentViewerComponent } from './document-viewer/document-viewer.component';
-import { ScannerComponent } from './tabs/scanner/scanner.component';
-import { SettingsComponent } from './tabs/settings/settings.component';
+import { DocumentViewerComponent } from './components/document-viewer/document-viewer.component';
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    DocumentViewerComponent,
-    ScannerComponent,
-    SettingsComponent
+    DocumentViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +34,11 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     IconsProviderModule,
     NzLayoutModule,
-    NzPageHeaderModule
+    NzPageHeaderModule,
+    NzCollapseModule,
+    NzIconModule,
+    NzButtonModule,
+    NzToolTipModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
