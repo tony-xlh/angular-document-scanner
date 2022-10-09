@@ -41,15 +41,20 @@ export class AppComponent {
   scan(){
     console.log(this.selectedScanner);
     if (this.DWObject) {
-      let deviceConfiguration:DeviceConfiguration = {};
-      deviceConfiguration.IfShowUI = this.showUI;
-      deviceConfiguration.IfFeederEnabled = this.useADF;
-      deviceConfiguration.IfDuplexEnabled = this.duplex;
-      deviceConfiguration.SelectSourceByIndex = this.scanners.indexOf(this.selectedScanner);
-      deviceConfiguration.Resolution = this.resolution;
-      deviceConfiguration.PixelType = this.pixelType;
-      console.log(deviceConfiguration);
-      this.DWObject.AcquireImage(deviceConfiguration);
+      let selectedIndex = this.scanners.indexOf(this.selectedScanner);
+      if (selectedIndex != -1) {
+        let deviceConfiguration:DeviceConfiguration = {};
+        deviceConfiguration.IfShowUI = this.showUI;
+        deviceConfiguration.IfFeederEnabled = this.useADF;
+        deviceConfiguration.IfDuplexEnabled = this.duplex;
+        deviceConfiguration.SelectSourceByIndex = selectedIndex;
+        deviceConfiguration.Resolution = this.resolution;
+        deviceConfiguration.PixelType = this.pixelType;
+        console.log(deviceConfiguration);
+        this.DWObject.AcquireImage(deviceConfiguration);
+      }else{
+        this.DWObject.AcquireImage();
+      }
     }
   }
 
