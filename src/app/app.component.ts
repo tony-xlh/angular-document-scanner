@@ -68,4 +68,10 @@ export class AppComponent {
       this.DWObject.RemoveAllSelectedImages();
     }
   }
+
+  rotateRight(){
+    if (this.DWObject) {
+      this.DWObject.RotateRight(this.DWObject.CurrentImageIndexInBuffer);
+    }
+  }
 }
