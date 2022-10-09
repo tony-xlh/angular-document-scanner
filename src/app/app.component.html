@@ -30,6 +30,12 @@
                   <nz-option *ngFor="let scanner of scanners" [nzValue]="scanner" [nzLabel]="scanner"></nz-option>
                 </nz-select>
               </div>
+              <div>
+                <label nz-checkbox [(ngModel)]="showUI">Show UI</label>
+                <label nz-checkbox [(ngModel)]="useADF">Use ADF</label>
+                <br/>
+                <label nz-checkbox [(ngModel)]="duplex">Duplex Scan</label>
+              </div>
               <button nz-button (click)="scan()">Scan</button>
             </nz-collapse-panel>
             <nz-collapse-panel nzHeader="SAVE" nzActive>

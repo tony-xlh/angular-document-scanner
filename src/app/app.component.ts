@@ -11,6 +11,9 @@ export class AppComponent {
   DWObject: WebTwain|undefined;
   selectedScanner: string = "";
   scanners: string[] = [];
+  showUI:boolean = false;
+  useADF:boolean = false;
+  duplex:boolean = false;
   constructor(){
 
   }
@@ -36,8 +39,9 @@ export class AppComponent {
     console.log(this.selectedScanner);
     if (this.DWObject) {
       let deviceConfiguration:DeviceConfiguration = {};
-      deviceConfiguration.IfShowUI = false;
-      deviceConfiguration.IfFeederEnabled = false;
+      deviceConfiguration.IfShowUI = this.showUI;
+      deviceConfiguration.IfFeederEnabled = this.useADF;
+      deviceConfiguration.IfDuplexEnabled = this.duplex;
       deviceConfiguration.SelectSourceByIndex = this.scanners.indexOf(this.selectedScanner);
       console.log(deviceConfiguration);
       this.DWObject.AcquireImage(deviceConfiguration);
