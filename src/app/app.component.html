@@ -36,6 +36,14 @@
                 <br/>
                 <label nz-checkbox [(ngModel)]="duplex">Duplex Scan</label>
               </div>
+              <div>
+                Resolution:
+                <nz-select [(ngModel)]="resolution">
+                  <nz-option [nzValue]="100" [nzLabel]="100"></nz-option>
+                  <nz-option [nzValue]="200" [nzLabel]="200"></nz-option>
+                  <nz-option [nzValue]="300" [nzLabel]="300"></nz-option>
+                </nz-select>
+              </div>
               <button nz-button (click)="scan()">Scan</button>
             </nz-collapse-panel>
             <nz-collapse-panel nzHeader="SAVE" nzActive>

@@ -14,6 +14,7 @@ export class AppComponent {
   showUI:boolean = false;
   useADF:boolean = false;
   duplex:boolean = false;
+  resolution:number = 200;
   constructor(){
 
   }
@@ -43,6 +44,7 @@ export class AppComponent {
       deviceConfiguration.IfFeederEnabled = this.useADF;
       deviceConfiguration.IfDuplexEnabled = this.duplex;
       deviceConfiguration.SelectSourceByIndex = this.scanners.indexOf(this.selectedScanner);
+      deviceConfiguration.Resolution = this.resolution;
       console.log(deviceConfiguration);
       this.DWObject.AcquireImage(deviceConfiguration);
     }
