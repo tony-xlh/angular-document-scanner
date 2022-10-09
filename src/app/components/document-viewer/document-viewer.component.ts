@@ -13,26 +13,43 @@ export class DocumentViewerComponent implements OnInit {
   onWebTWAINReady = new EventEmitter<WebTwain>();
   containerID = "dwtcontrolContainer";
   DWObject:WebTwain|undefined;
-  private _width:string;
-  @Input()
-  set width(width: string) {
-    this._width= width;
-  }
 
-  get width(): string{ return this._width; }
+  private _license:string;
+  @Input()
+  set license(license: string) {
+    this._license= license;
+  }
+  get license(): string{ return this._license; }
+
+  private _viewMode:{cols:number,rows:number};
+  @Input()
+  set viewMode(viewMode: {cols:number,rows:number}) {
+    this._viewMode= viewMode;
+    if (this.DWObject) {
+      this.DWObject.Viewer.setViewMode(this.viewMode.cols,this.viewMode.rows);
+    }
+  }
+  get viewMode(): {cols:number,rows:number}{ return this._viewMode; }
 
   private _height:string;
   @Input()
   set height(height: string) {
     this._height= height;
   }
-
   get height(): string{ return this._height; }
 
+  private _width:string;
+  @Input()
+  set width(width: string) {
+    this._width= width;
+  }
+  get width(): string{ return this._width; }
 
   constructor() { 
     this._width = "100%";
     this._height = "100%";
+    this._viewMode = {cols:2,rows:2};
+    this._license = "t01529gIAACXEXNlM7wE1256QvZ+rCxocWpLMMCDZjZERU2jIoIbVgsAOjGxkCTEHve0cFnCRhwnMbKfvzroxV8eij1g0DudsWGIjGBhUE+VdqW3JGXmBzYB2AF/kCKzLD7jr53VUwQGJgAbApvEHnIf8zkoGIT2QCGgAzkM6MJhk+2lIDwX3HpJDIBHQAPSQDqw3Ya2VT+1Tmkg=";
     this.initDWT();
   }
 
@@ -47,11 +64,14 @@ export class DocumentViewerComponent implements OnInit {
       this.DWObject.Viewer.height = this._height;
       this.viewerElement.nativeElement.style.width = this._width;
       this.viewerElement.nativeElement.style.height = this._height;
+      this.DWObject.Viewer.setViewMode(this.viewMode.cols,this.viewMode.rows);
       if (this.onWebTWAINReady) {
         this.onWebTWAINReady.emit(this.DWObject);
       }
     });
-    Dynamsoft.DWT.ProductKey = "t01529gIAACXEXNlM7wE1256QvZ+rCxocWpLMMCDZjZERU2jIoIbVgsAOjGxkCTEHve0cFnCRhwnMbKfvzroxV8eij1g0DudsWGIjGBhUE+VdqW3JGXmBzYB2AF/kCKzLD7jr53VUwQGJgAbApvEHnIf8zkoGIT2QCGgAzkM6MJhk+2lIDwX3HpJDIBHQAPSQDqw3Ya2VT+1Tmkg=";
+    if (this._license) {
+      Dynamsoft.DWT.ProductKey = this._license;
+    }
     Dynamsoft.DWT.ResourcesPath = "assets/dwt-resources";
     Dynamsoft.DWT.Containers = [{
         WebTwainId: 'dwtObject',
