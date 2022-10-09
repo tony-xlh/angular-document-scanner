@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WebTwain } from 'dwt/dist/types/WebTwain';
+import { DeviceConfiguration } from 'dwt/dist/types/WebTwain.Acquire';
 
 @Component({
   selector: 'app-root',
@@ -29,5 +30,17 @@ export class AppComponent {
       }
     }
     console.log(this.scanners);
+  }
+
+  scan(){
+    console.log(this.selectedScanner);
+    if (this.DWObject) {
+      let deviceConfiguration:DeviceConfiguration = {};
+      deviceConfiguration.IfShowUI = false;
+      deviceConfiguration.IfFeederEnabled = false;
+      deviceConfiguration.SelectSourceByIndex = this.scanners.indexOf(this.selectedScanner);
+      console.log(deviceConfiguration);
+      this.DWObject.AcquireImage(deviceConfiguration);
+    }
   }
 }
