@@ -62,4 +62,10 @@ export class AppComponent {
       imageEditor.show();
     }
   }
+
+  removeSelected(){
+    if (this.DWObject) {
+      this.DWObject.RemoveAllSelectedImages();
+    }
+  }
 }
