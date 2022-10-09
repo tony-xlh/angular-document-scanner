@@ -43,4 +43,16 @@ export class AppComponent {
       this.DWObject.AcquireImage(deviceConfiguration);
     }
   }
+
+  save(){
+    if (this.DWObject) {
+      const onSuccess = () => {
+        alert("Success");
+      }
+      const onFailure = () => {
+        alert("Failed");
+      }
+      this.DWObject.SaveAllAsPDF("Documents.pdf",onSuccess,onFailure);
+    }
+  }
 }

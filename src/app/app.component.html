@@ -23,7 +23,7 @@
         </div> 
         <div class="right">
           <nz-collapse>
-            <nz-collapse-panel nzHeader="SCAN">
+            <nz-collapse-panel nzHeader="SCAN" nzActive>
               Select Source:
               <div>
                 <nz-select [(ngModel)]="selectedScanner">
@@ -32,8 +32,8 @@
               </div>
               <button nz-button (click)="scan()">Scan</button>
             </nz-collapse-panel>
-            <nz-collapse-panel nzHeader="SAVE">
-              
+            <nz-collapse-panel nzHeader="SAVE" nzActive>
+              <button nz-button (click)="save()">Save as PDF</button>
             </nz-collapse-panel>
           </nz-collapse>
         </div> 
