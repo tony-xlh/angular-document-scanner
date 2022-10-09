@@ -12,20 +12,24 @@
             <button nz-tooltip nzTooltipTitle="Delete selected" nzTooltipPlacement="bottom">
               <i nz-icon nzType="delete" nzTheme="outline"></i>
             </button>
-            <button  nz-tooltip nzTooltipTitle="Edit selected" nzTooltipPlacement="bottom">
+            <button nz-tooltip nzTooltipTitle="Edit selected" nzTooltipPlacement="bottom">
               <i nz-icon nzType="edit" nzTheme="outline"></i>
             </button>
-            <button  nz-tooltip nzTooltipTitle="Rotate selected" nzTooltipPlacement="bottom">
+            <button nz-tooltip nzTooltipTitle="Rotate selected" nzTooltipPlacement="bottom">
               <i nz-icon nzType="rotate-right" nzTheme="outline"></i>
             </button>
-            
           </div>
-          <app-document-viewer (onWebTWAINReady)="onWebTWAINReady($event)"></app-document-viewer>
+          <app-document-viewer height="calc(100% - 48px)" (onWebTWAINReady)="onWebTWAINReady($event)"></app-document-viewer>
         </div> 
         <div class="right">
           <nz-collapse>
             <nz-collapse-panel nzHeader="SCAN">
-              
+              Select Source:
+              <div>
+                <nz-select ngModel="selectedScanner">
+                  <nz-option *ngFor="let scanner of scanners" [nzValue]="scanner" [nzLabel]="scanner"></nz-option>
+                </nz-select>
+              </div>
             </nz-collapse-panel>
             <nz-collapse-panel nzHeader="SAVE">
               
