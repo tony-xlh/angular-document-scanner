@@ -87,4 +87,16 @@ export class AppComponent {
       this.DWObject.RotateRight(this.DWObject.CurrentImageIndexInBuffer);
     }
   }
+
+  moveUp() {
+    if (this.DWObject) {
+      this.DWObject.MoveImage(this.DWObject.CurrentImageIndexInBuffer,this.DWObject.CurrentImageIndexInBuffer-1);
+    }
+  }
+
+  moveDown() {
+    if (this.DWObject) {
+      this.DWObject.MoveImage(this.DWObject.CurrentImageIndexInBuffer,this.DWObject.CurrentImageIndexInBuffer+1);
+    }
+  }
 }

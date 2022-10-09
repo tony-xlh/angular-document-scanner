@@ -18,6 +18,12 @@
             <button (click)="rotateRight()" nz-tooltip nzTooltipTitle="Rotate selected" nzTooltipPlacement="bottom">
               <i nz-icon nzType="rotate-right" nzTheme="outline"></i>
             </button>
+            <button (click)="moveUp()" nz-tooltip nzTooltipTitle="Move selected up" nzTooltipPlacement="bottom">
+              <i nz-icon nzType="up" nzTheme="outline"></i>
+            </button>
+            <button (click)="moveDown()" nz-tooltip nzTooltipTitle="Move selected down" nzTooltipPlacement="bottom">
+              <i nz-icon nzType="down" nzTheme="outline"></i>
+            </button>
           </div>
           <app-document-viewer height="calc(100% - 48px)" (onWebTWAINReady)="onWebTWAINReady($event)"></app-document-viewer>
         </div> 
