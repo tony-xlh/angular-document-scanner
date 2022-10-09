@@ -34,13 +34,16 @@
                 "glob": "**/*",
                 "input": "./node_modules/dwt/dist",
                 "output": "assets/dwt-resources"
-              }
+              },
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/theme.less",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -102,7 +105,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.css"
