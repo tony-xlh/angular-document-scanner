@@ -44,6 +44,14 @@
                   <nz-option [nzValue]="300" [nzLabel]="300"></nz-option>
                 </nz-select>
               </div>
+              <div>
+                Pixel Type:
+                <nz-radio-group [(ngModel)]="pixelType">
+                  <label nz-radio nzValue="0">B&W</label>
+                  <label nz-radio nzValue="1">Gray</label>
+                  <label nz-radio nzValue="2">Color</label>
+                </nz-radio-group>
+              </div>
               <button nz-button (click)="scan()">Scan</button>
             </nz-collapse-panel>
             <nz-collapse-panel nzHeader="SAVE" nzActive>

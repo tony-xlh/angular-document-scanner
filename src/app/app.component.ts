@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { WebTwain } from 'dwt/dist/types/WebTwain';
 import { DeviceConfiguration } from 'dwt/dist/types/WebTwain.Acquire';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,6 +16,7 @@ export class AppComponent {
   useADF:boolean = false;
   duplex:boolean = false;
   resolution:number = 200;
+  pixelType:string = "2";
   constructor(){
 
   }
@@ -45,6 +47,7 @@ export class AppComponent {
       deviceConfiguration.IfDuplexEnabled = this.duplex;
       deviceConfiguration.SelectSourceByIndex = this.scanners.indexOf(this.selectedScanner);
       deviceConfiguration.Resolution = this.resolution;
+      deviceConfiguration.PixelType = this.pixelType;
       console.log(deviceConfiguration);
       this.DWObject.AcquireImage(deviceConfiguration);
     }
