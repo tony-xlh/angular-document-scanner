@@ -49,7 +49,7 @@ export class DocumentViewerComponent implements OnInit {
     this._width = "100%";
     this._height = "100%";
     this._viewMode = {cols:2,rows:2};
-    this._license = "t01529gIAACXEXNlM7wE1256QvZ+rCxocWpLMMCDZjZERU2jIoIbVgsAOjGxkCTEHve0cFnCRhwnMbKfvzroxV8eij1g0DudsWGIjGBhUE+VdqW3JGXmBzYB2AF/kCKzLD7jr53VUwQGJgAbApvEHnIf8zkoGIT2QCGgAzkM6MJhk+2lIDwX3HpJDIBHQAPSQDqw3Ya2VT+1Tmkg=";
+    this._license = "";
     this.initDWT();
   }
 
