@@ -60,8 +60,8 @@ export class DocumentViewerComponent implements OnInit {
   initDWT(){
     Dynamsoft.DWT.RegisterEvent('OnWebTwainReady', () => {
       this.DWObject = Dynamsoft.DWT.GetWebTwain(this.containerID);
-      this.DWObject.Viewer.width = this._width;
-      this.DWObject.Viewer.height = this._height;
+      this.DWObject.Viewer.width = "100%";
+      this.DWObject.Viewer.height = "100%";
       this.viewerElement.nativeElement.style.width = this._width;
       this.viewerElement.nativeElement.style.height = this._height;
       this.DWObject.Viewer.setViewMode(this.viewMode.cols,this.viewMode.rows);
